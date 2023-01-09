@@ -28,4 +28,39 @@ def check_game():
         return False, user, comp
 
 
-print(check_game())
+def start_game():
+
+    i = 1
+    scoreComp = 0
+    scoreUser = 0
+
+    while i<6:
+
+        print(f"\nRound {i}")
+        print(f"Score user-> {scoreUser}")
+        print(f"Score Computer-> {scoreComp}")
+
+        status,user,comp=check_game()
+        if status:
+            scoreUser+=1
+            print(f"win user \nUser->{user}\nComputer->{comp}")
+            
+        elif status == False:
+            scoreComp+=1
+            print(f"lose user \nUser->{user}\nComputer->{comp}")
+            
+        else:
+            print(f"Tied \nUser->{user}\nComputer->{comp}")
+
+        i+=1
+        
+    if scoreUser>scoreComp:
+        print("\nWinning User")
+        print(f"Score User -> {scoreUser}")
+        print(f"Score Computer -> {scoreComp}")
+    else:
+        print("\nYou lose!")
+        print(f"Score User -> {scoreUser}")
+        print(f"Score Computer -> {scoreComp}")
+
+start_game()
